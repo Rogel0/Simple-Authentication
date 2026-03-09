@@ -9,7 +9,8 @@ const isProd = env.NODE_ENV === "production";
 const devFormat = printf(({ level, message, timestamp: ts, ...meta }) => {
   const metaKeys = Object.keys(meta);
   const shouldPrintMeta =
-    metaKeys.length > 0 && !(metaKeys.length === 1 && metaKeys[0] === "service");
+    metaKeys.length > 0 &&
+    !(metaKeys.length === 1 && metaKeys[0] === "service");
   const metaSuffix = shouldPrintMeta ? ` ${JSON.stringify(meta, null, 2)}` : "";
   return `${ts} ${level}: ${message}${metaSuffix}`;
 });

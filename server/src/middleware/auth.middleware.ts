@@ -19,38 +19,40 @@ const getTokenFromRequest = (req: Request): string | null => {
   return null;
 };
 
-export const authenticate =
-  (req: Request, res: Response, next: NextFunction): void => {
-    const token = getTokenFromRequest(req);
+export const authenticate = (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): void => {
+  const token = getTokenFromRequest(req);
 
-    if (!token) {
+  if (!token) {
+    res.status(401).json({
+      status: "error",
+      message: "Authentication required",
+    });
+    return;
+  }
+
+  try {
+    const payload = verifyAccessToken(token) as { sub?: string } | undefined;
+
+    if (!payload?.sub) {
       res.status(401).json({
         status: "error",
-        message: "Authentication required",
+        message: "Invalid access token",
       });
       return;
     }
 
-    try {
-      const payload = verifyAccessToken(token) as { sub?: string } | undefined;
-
-      if (!payload?.sub) {
-        res.status(401).json({
-          status: "error",
-          message: "Invalid access token",
-        });
-        return;
-      }
-
-      // Attach user id to request for downstream handlers
-      (req as any).userId = payload.sub;
-      next();
-    } catch (error) {
-      logger.warn("JWT authentication failed", { error });
-      res.status(401).json({
-        status: "error",
-        message: "Invalid or expired access token",
-      });
-    }
-  };
-
+    // Attach user id to request for downstream handlers
+    (req as any).userId = payload.sub;
+    next();
+  } catch (error) {
+    logger.warn("JWT authentication failed", { error });
+    res.status(401).json({
+      status: "error",
+      message: "Invalid or expired access token",
+    });
+  }
+};

@@ -6,14 +6,13 @@
   "bugs": {
     "url": "https://github.com/Rogel0/Auth-Service-Structure/issues"
   },
-  
   "license": "ISC",
   "author": "",
   "type": "module",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec tsx src/server.ts",
-    "build": "tsc",
+    "build": "npx tsc",
     "start": "node dist/server.js"
   },
   "devDependencies": {

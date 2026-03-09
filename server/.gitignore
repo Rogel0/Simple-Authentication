@@ -1,4 +1,4 @@
-echo "node_modules/
+node_modules/
 .env
 *.log
 dist/
@@ -11,4 +11,4 @@ coverage/
 .env.local
 .env.development
 .env.test
-.env.production" > .gitignore
+.env.production

@@ -1,14 +1,44 @@
-echo "node_modules/
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment variables
 .env
-*.log
-dist/
-build/
-.DS_Store
-.vscode/
-*.swp
-*.swo
-coverage/
 .env.local
 .env.development
 .env.test
-.env.production" > .gitignore
+.env.production
+*.env
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+*.pem
+.vercel
+.cache
