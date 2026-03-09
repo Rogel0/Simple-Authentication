@@ -16,6 +16,9 @@ export const env: EnvConfig = {
     PORT: parseInt(getEnv("PORT", "3000"), 10),
     DATABASE_URL: getEnv("DATABASE_URL"),
     JWT_ACCESS_SECRET: getEnv("JWT_ACCESS_SECRET"),
-    ACCESS_TOKEN_EXPIRES: getEnv("ACCESS_TOKEN_EXPIRES", "24h"),
+    ACCESS_TOKEN_EXPIRES: getEnv(
+        "ACCESS_TOKEN_EXPIRES",
+        process.env.ACCESS_TOKEN_EXPIRATION || "24h",
+    ),
     LOG_LEVEL: getEnv("LOG_LEVEL", "info"),
 }
