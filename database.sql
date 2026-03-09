@@ -13,7 +13,7 @@ CREATE TABLE users (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Index for faster email lookups
+-- Index for faster email lookupsx
 CREATE INDEX idx_users_email ON users(email);
 
 -- Function to update updated_at timestamp automatically

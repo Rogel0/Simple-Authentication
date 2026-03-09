@@ -6,10 +6,7 @@
   "bugs": {
     "url": "https://github.com/Rogel0/Auth-Service-Structure/issues"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Rogel0/Auth-Service-Structure.git"
-  },
+  
   "license": "ISC",
   "author": "",
   "type": "module",
