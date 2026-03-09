@@ -7,6 +7,7 @@ import rateLimit from "express-rate-limit";
 import { env } from "./config/env";
 import connectDB, { pool } from "./config/database";
 import logger from "./utils/logger";
+import authRouter from "./routes/auth.routes";
 
 const app = express();
 
@@ -33,6 +34,8 @@ app.use(
     legacyHeaders: false,
   }),
 );
+
+app.use("/api/auth", authRouter);
 
 app.get("/health", async (_req: Request, res: Response) => {
   try {
