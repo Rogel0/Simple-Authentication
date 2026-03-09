@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import { UserModel } from "../models/user.model";
-import { signAccessToken } from "../utils/jwt";
+import { UserModel } from "../models/user.model.js";
+import { signAccessToken } from "../utils/jwt.js";
 import { z } from "zod";
 
 const registerSchema = z.object({

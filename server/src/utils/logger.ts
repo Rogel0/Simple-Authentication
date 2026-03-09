@@ -1,5 +1,5 @@
 import winston from "winston";
-import { env } from "../config/env";
+import { env } from "../config/env.js";
 
 const { combine, timestamp, errors, splat, json, colorize, printf } =
   winston.format;

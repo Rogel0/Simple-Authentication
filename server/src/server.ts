@@ -4,10 +4,10 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import rateLimit from "express-rate-limit";
 
-import { env } from "./config/env";
-import connectDB, { pool } from "./config/database";
-import logger from "./utils/logger";
-import authRouter from "./routes/auth.routes";
+import { env } from "./config/env.js";
+import connectDB, { pool } from "./config/database.js";
+import logger from "./utils/logger.js";
+import authRouter from "./routes/auth.routes.js";
 
 const app = express();
 
